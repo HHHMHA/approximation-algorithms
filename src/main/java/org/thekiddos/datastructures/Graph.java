@@ -10,6 +10,11 @@ public class Graph {
         adjacencyList.add( new ArrayList<>() );
     }
 
+    public void addVertices( int number ) {
+        for ( int i = 0; i < number; ++i )
+            adjacencyList.add( new ArrayList<>() );
+    }
+
     public void addEdge( int source, int destination, int weight ) throws IllegalArgumentException {
         validateVertices();
         var sourceOutEdges = getOutEdges( source );
@@ -36,5 +41,9 @@ public class Graph {
     public void addBidirectionalEdge( int source, int destination, int weight ) throws IllegalArgumentException {
         addEdge( source, destination, weight );
         addEdge( destination, source, weight );
+    }
+
+    public int size() {
+        return adjacencyList.size();
     }
 }
