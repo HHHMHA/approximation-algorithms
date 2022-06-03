@@ -154,6 +154,9 @@ public final class Simplex {
 
     public static List<Double> solve() {
         List<Double> solution = new ArrayList<>( numOfVar );
+        for ( int i = 0; i < numOfVar; ++i ) {
+            solution.add( 0.0 );
+        }
         int pc, pr = 0, row;
 
         row = negativeb();
