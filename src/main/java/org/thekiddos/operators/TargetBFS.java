@@ -50,5 +50,6 @@ public class TargetBFS extends GraphOrderedVerticesOperator {
             result.add( 0, currentVertex );
             currentVertex = parents[ currentVertex ];
         }
+        result.add( 0, currentVertex );
     }
 }
