@@ -1,5 +1,8 @@
 package org.thekiddos.operators;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
 import org.thekiddos.datastructures.Edge;
 import org.thekiddos.datastructures.Graph;
 
@@ -8,9 +11,14 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class GreedyMWPM extends GraphEdgeOperator {
+    @Setter
+    @Getter( AccessLevel.PROTECTED )
+    private List<Integer> vertices;
+
     public GreedyMWPM( Graph graph, List<Integer> vertices ) {
         // TODO: reject vertices if it's not even
-        super( graph, vertices );
+        super( graph );
+        this.vertices = new ArrayList<>( vertices );
     }
 
     @Override

@@ -3,7 +3,6 @@ package org.thekiddos.operators;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 import org.thekiddos.datastructures.Edge;
 import org.thekiddos.datastructures.Graph;
 
@@ -16,8 +15,6 @@ import java.util.List;
 public abstract class GraphEdgeOperator {
     @Getter( AccessLevel.PROTECTED )
     private final Graph graph;
-    @Setter @Getter( AccessLevel.PROTECTED )
-    private List<Integer> vertices;
 
     public List<Edge> operate() {
         List<Edge> result = new ArrayList<>();
