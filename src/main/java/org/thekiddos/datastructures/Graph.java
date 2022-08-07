@@ -3,7 +3,7 @@ package org.thekiddos.datastructures;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Graph {
+public class Graph implements Cloneable {
     private final List<List<Edge>> adjacencyList = new ArrayList<>();
 
     public void addVertex() {
@@ -45,5 +45,17 @@ public class Graph {
 
     public int size() {
         return adjacencyList.size();
+    }
+
+    @Override
+    public Graph clone() {
+        Graph result = new Graph();
+        result.addVertices( this.size() );
+
+        for ( int i = 0 ; i < this.size(); ++i ) {
+            this.getOutEdges( i ).forEach( e -> result.addEdge( e.getSource(), e.getDestination(), e.getWeight() ) );
+        }
+
+        return result;
     }
 }
