@@ -1,7 +1,9 @@
 package org.thekiddos.datastructures;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Graph implements Cloneable {
     private final List<List<Edge>> adjacencyList = new ArrayList<>();
@@ -57,5 +59,9 @@ public class Graph implements Cloneable {
         }
 
         return result;
+    }
+
+    public List<Edge> getEdges() {
+        return adjacencyList.stream().flatMap( Collection::stream ).collect( Collectors.toList() );
     }
 }
